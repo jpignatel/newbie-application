@@ -10,23 +10,6 @@ servers:
   - url: https://localhost:8080/api
     description: Development server with TLS Profile
 paths:
-  /ports:
-    get:
-      tags:
-      - "port"
-      summary: "Get Ports"
-      description: "Ports."
-      operationId: "getPorts"
-      parameters: []
-      responses:
-        "200":
-          description: "successful operation"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ArrayOfPorts"
-        "404":
-          description: "Ports not found"
   /reservations:
     get:
       tags:
@@ -130,18 +113,6 @@ components:
           schema:
             $ref: 'https://opensource.zalando.com/problem/schema.yaml#/Problem'
   schemas:
-    Port:
-     type: object
-     properties:
-       code:
-         type: string
-       name:
-         type: string
-    ArrayOfPorts:
-      type: array
-      items:
-          $ref: "#/components/schemas/Port"
-
     Reservation:
       type: object
       properties:
