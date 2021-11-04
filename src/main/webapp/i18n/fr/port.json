@@ -1,0 +1,17 @@
+{
+  "newbieApp": {
+    "port": {
+      "home": {
+        "title": "Ports",
+        "refreshListLabel": "Actualiser la liste",
+        "notFound": "Aucun Port trouvé"
+      },
+      "detail": {
+        "title": "Port"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name"
+    }
+  }
+}

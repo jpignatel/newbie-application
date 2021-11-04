@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-reservation-heading" data-cy="ReservationCreateUpdateHeading" jhiTranslate="newbieApp.reservation.home.createOrEditLabel">
+        Create or edit a Reservation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.guestFullName" for="field_guestFullName"
+            >Guest Full Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="guestFullName"
+            id="field_guestFullName"
+            data-cy="guestFullName"
+            formControlName="guestFullName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.initialDate" for="field_initialDate">Initial Date</label>
+          <div class="d-flex">
+            <input
+              id="field_initialDate"
+              data-cy="initialDate"
+              type="datetime-local"
+              class="form-control"
+              name="initialDate"
+              formControlName="initialDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.resStatus" for="field_resStatus">Res Status</label>
+          <select class="form-control" name="resStatus" formControlName="resStatus" id="field_resStatus" data-cy="resStatus">
+            <option [ngValue]="null">{{ 'newbieApp.ResStatus.null' | translate }}</option>
+            <option *ngFor="let resStatus of resStatusValues" [value]="resStatus">
+              {{ 'newbieApp.ResStatus.' + resStatus | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.ship" for="field_ship">Ship</label>
+          <input type="text" class="form-control" name="ship" id="field_ship" data-cy="ship" formControlName="ship" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.portFrom" for="field_portFrom">Port From</label>
+          <input type="text" class="form-control" name="portFrom" id="field_portFrom" data-cy="portFrom" formControlName="portFrom" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.from" for="field_from">From</label>
+          <div class="d-flex">
+            <input
+              id="field_from"
+              data-cy="from"
+              type="datetime-local"
+              class="form-control"
+              name="from"
+              formControlName="from"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.portTo" for="field_portTo">Port To</label>
+          <input type="text" class="form-control" name="portTo" id="field_portTo" data-cy="portTo" formControlName="portTo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="newbieApp.reservation.to" for="field_to">To</label>
+          <div class="d-flex">
+            <input
+              id="field_to"
+              data-cy="to"
+              type="datetime-local"
+              class="form-control"
+              name="to"
+              formControlName="to"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

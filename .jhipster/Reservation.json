@@ -1,0 +1,49 @@
+{
+  "name": "Reservation",
+  "fields": [
+    {
+      "fieldName": "guestFullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "initialDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "resStatus",
+      "fieldType": "ResStatus",
+      "fieldValues": "SH (Shell),OF (Option),BK (Booked),CL (Cl),TM (Tm),CX (Canceled),CT (Ct),QT (Quoted),WL (Waiting)"
+    },
+    {
+      "fieldName": "ship",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "portFrom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "from",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "portTo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "to",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "reservation",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["newbie"],
+  "changelogDate": "20211104153200"
+}

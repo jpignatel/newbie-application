@@ -1,0 +1,50 @@
+<div>
+  <h2 id="page-heading" data-cy="PortHeading">
+    <span jhiTranslate="newbieApp.port.home.title">Ports</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="newbieApp.port.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="ports?.length === 0">
+    <span jhiTranslate="newbieApp.port.home.notFound">No ports found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="ports && ports.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="newbieApp.port.code">Code</span></th>
+          <th scope="col"><span jhiTranslate="newbieApp.port.name">Name</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let port of ports; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/port', port.id, 'view']">{{ port.id }}</a>
+          </td>
+          <td>{{ port.code }}</td>
+          <td>{{ port.name }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/port', port.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
