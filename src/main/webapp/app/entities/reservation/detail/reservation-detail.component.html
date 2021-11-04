@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="reservation">
+      <h2 data-cy="reservationDetailsHeading"><span jhiTranslate="newbieApp.reservation.detail.title">Reservation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ reservation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.guestFullName">Guest Full Name</span></dt>
+        <dd>
+          <span>{{ reservation.guestFullName }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.initialDate">Initial Date</span></dt>
+        <dd>
+          <span>{{ reservation.initialDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.resStatus">Res Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'newbieApp.ResStatus.' + reservation.resStatus }}">{{ reservation.resStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.ship">Ship</span></dt>
+        <dd>
+          <span>{{ reservation.ship }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.portFrom">Port From</span></dt>
+        <dd>
+          <span>{{ reservation.portFrom }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.from">From</span></dt>
+        <dd>
+          <span>{{ reservation.from | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.portTo">Port To</span></dt>
+        <dd>
+          <span>{{ reservation.portTo }}</span>
+        </dd>
+        <dt><span jhiTranslate="newbieApp.reservation.to">To</span></dt>
+        <dd>
+          <span>{{ reservation.to | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/reservation', reservation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
