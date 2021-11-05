@@ -39,7 +39,7 @@
   "entityTableName": "reservation",
   "dto": "mapstruct",
   "pagination": "no",
-  "service": "serviceImpl",
+  "service": "serviceClass",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,
   "readOnly": false,

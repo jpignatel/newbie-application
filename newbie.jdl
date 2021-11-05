@@ -27,7 +27,6 @@ enum ResStatus {
 }
 
 @dto(mapstruct)
-@service(serviceImpl)
 entity Reservation {
 	guestFullName String,
 	initialDate Instant,
