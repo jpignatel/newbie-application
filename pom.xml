@@ -112,12 +112,12 @@
              <dependency>
                     <groupId>wsdl4j</groupId>
                     <artifactId>wsdl4j</artifactId>
-                    <version>1.6.3</version>
              </dependency>
              <dependency>
                     <groupId>xerces</groupId>
                     <artifactId>xercesImpl</artifactId>
                     <version>2.12.0</version>
+                    <scope>runtime</scope>
              </dependency>
              <dependency>
                     <groupId>vx.swxmlapi</groupId>
@@ -366,6 +366,61 @@
             </testResource>
         </testResources>
         <plugins>
+	        <plugin>
+	            <groupId>org.codehaus.mojo</groupId>
+	            <artifactId>build-helper-maven-plugin</artifactId>
+	        	<version>3.2.0</version>
+	            <executions>
+	                <execution>
+	                	<id>custom</id>
+	                    <phase>generate-sources</phase>
+	                    <goals>
+	                        <goal>add-source</goal>
+	                    </goals>
+	                    <configuration>
+	                        <sources>
+	                            <source>custom/src/main/java</source>
+	                        </sources>
+	                    </configuration>
+	                </execution>
+	                <execution>
+	                	<id>annotations</id>
+	                    <phase>generate-sources</phase>
+	                    <goals>
+	                        <goal>add-source</goal>
+	                    </goals>
+	                    <configuration>
+	                        <sources>
+	                            <source>target/generated-sources/annotations</source>
+	                        </sources>
+	                    </configuration>
+	                </execution>
+	                <execution>
+	                	<id>openapi</id>
+	                    <phase>generate-sources</phase>
+	                    <goals>
+	                        <goal>add-source</goal>
+	                    </goals>
+	                    <configuration>
+	                        <sources>
+	                            <source>target/generated-sources/openapi/src/main/java</source>
+	                        </sources>
+	                    </configuration>
+	                </execution>
+	                <execution>
+	                	<id>openapi-resources</id>
+	                    <phase>generate-resources</phase>
+	                    <goals>
+	                        <goal>add-source</goal>
+	                    </goals>
+	                    <configuration>
+	                        <sources>
+	                            <resource>target/generated-sources/openapi/src/main/resources</resource>
+	                        </sources>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
