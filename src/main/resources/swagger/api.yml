@@ -122,8 +122,7 @@ components:
         guestFullName:
             type: string
         initialDate:
-            type: string
-            format: date-time
+          type: date
         resStatus:
             type: string
             enum:
@@ -141,13 +140,11 @@ components:
         portFrom:
           type: string
         from:
-          type: string
-          format: date-time
+          type: date
         portTo:
           type: string
         to:
-          type: string
-          format: date-time
+          type: date
 
     ArrayOfReservations:
       type: array

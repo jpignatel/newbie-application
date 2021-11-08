@@ -7,7 +7,7 @@ application {
     authenticationType jwt,
     clientFramework angularX
 	enableSwaggerCodegen true
-	languages [en, fr]
+	languages [en, fr, it]
 	nativeLanguage fr
 	testFrameworks [protractor, cucumber, gatling]
   }
@@ -26,7 +26,6 @@ enum ResStatus {
     WL (Waiting)
 }
 
-@dto(mapstruct)
 entity Reservation {
 	guestFullName String,
 	initialDate Instant,
@@ -38,9 +37,11 @@ entity Reservation {
 	to Instant
 }
 
-@readOnly
-@dto(mapstruct)
 entity Port {
 	code String,
     name String
 }
+
+readOnly Port
+dto * with mapstruct
+service Reservation with serviceClass

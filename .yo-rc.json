@@ -23,7 +23,7 @@
     "testFrameworks": ["protractor", "cucumber", "gatling"],
     "enableTranslation": true,
     "nativeLanguage": "fr",
-    "languages": ["fr", "en"],
+    "languages": ["fr", "en", "it"],
     "clientFramework": "angularX",
     "jhiPrefix": "jhi",
     "withAdminUi": true,
